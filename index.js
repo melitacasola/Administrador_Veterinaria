@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import conectarDB from "./config/db.js";
 import veterinarioRoutes from './routes/veterinarioRoutes.js';
+import pacienteRoutes from './routes/pacienteRoutes.js';
 
 const app = express();
 app.use(express.json());
@@ -12,6 +13,7 @@ conectarDB();
 
 //para ver en pantalla con express - peticion 
 app.use('/api/veterinarios', veterinarioRoutes);
+app.use('/api/pacientes', pacienteRoutes);
 //arrancar el serv en puerto 4000 para back, call 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => {
